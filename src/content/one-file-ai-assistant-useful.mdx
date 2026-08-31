@@ -1,0 +1,59 @@
+export const meta = {
+  title: "The one file that made my AI assistant actually useful",
+  excerpt:
+    "A CLAUDE.md file turns every new AI conversation from a blank guess into a briefed one. Here's what to put in it and why it's worth writing before your next session.",
+  date: "2026-08-30",
+  readTime: "5 min read",
+  tags: ["Engineering", "DX"],
+};
+
+Every AI coding assistant starts a conversation knowing nothing about you. Not your runtime, not your editor, not whether you want a fix or a five page migration plan. So it guesses. Sometimes that guess costs an entire reply on the wrong assumption: a `npm install` suggestion for a Bun project, a proposed `git push` nobody asked for, a new testing framework where one already exists.
+
+A `CLAUDE.md` file (Anthropic's Claude Code reads it automatically; other tools use `AGENTS.md` for the same idea) fixes that by giving the assistant a fixed starting point instead of a blank one. Two versions matter, and they solve different problems:
+
+- **Global** (`~/.claude/CLAUDE.md`): your machine, your habits, your communication preference. Loaded into every project, every session, regardless of which repo you're in.
+- **Project** (`CLAUDE.md` in the repo, checked into git): rules specific to this codebase, shared with anyone else, human or AI, who opens it.
+
+## A real example, not a hypothetical
+
+This site has both. The project file is one line:
+
+```
+@AGENTS.md
+```
+
+And `AGENTS.md` itself says:
+
+```
+# This is NOT the Next.js you know
+
+This version has breaking changes. APIs, conventions, and file
+structure may all differ from your training data. Read the
+relevant guide in node_modules/next/dist/docs/ before writing
+any code. Heed deprecation notices.
+```
+
+Three sentences. They stop an assistant from confidently applying outdated Next.js patterns from its training data to a version that changed underneath it. Without that file, every session relearns the same lesson the hard way, usually inside broken code.
+
+## What goes in the global file
+
+The project file handles the codebase. The global file handles you. A few categories are worth writing down before an assistant ever has to guess at them:
+
+```
+## Communication
+Answer in [your language], no filler, no emojis.
+
+## System
+OS, shell, editor, package manager, runtime.
+
+## Workflow
+Never push without asking. Prefer a code fix over a written plan.
+```
+
+That's the whole shape. Role, communication style, tooling, and the handful of actions that should never happen without confirmation. This project's own case study makes the payoff concrete: the build deliberately uses `bun test` instead of adding Vitest, specifically to avoid a second JS toolchain next to Bun. An assistant that doesn't know Bun is the runtime has no way to make that same call. It'll happily suggest the popular default instead, and you'll spend a reply undoing it.
+
+## The actual value
+
+Not "fewer prompts" as some abstract efficiency win. The real value is fewer wrong turns: no re-explaining your stack in message three, no tone that doesn't match how you actually want to work, no destructive command run on a guess about your setup. The assistant's first answer is usable instead of being a draft you correct.
+
+Start with three sections: who you are, how you like to work, what should never happen without asking. Everything else gets added the moment a wrong answer teaches you what was missing.

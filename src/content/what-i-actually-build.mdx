@@ -1,0 +1,33 @@
+export const meta = {
+  title: "What I actually build, and what comes next",
+  excerpt:
+    "A first look at the stack I use daily, the problems I like solving, and why this blog will track real decisions instead of highlight reels.",
+  date: "2026-08-20",
+  readTime: "4 min read",
+  tags: ["Engineering", "Product"],
+};
+
+I started in embedded systems: firmware close to the metal, sensors wired by hand, protocols like UART, SPI, and CAN debugged with an oscilloscope instead of a browser console. Hardware doesn't forgive sloppy thinking. Limited memory, no garbage collector to bail you out, bugs that only show up at minus ten degrees in a customer's warehouse. That taught me to understand a system fully before touching it, a habit that never left when I moved to software.
+
+The move happened after watching someone use software I'd helped build and struggle with a screen that made perfect sense to me and none to them. That gap, between code that works and software that feels right, is what pulled me toward product and full-stack development, and it's still what I care about most.
+
+## What that looks like in practice
+
+Two projects on this site show it best:
+
+- **Creator Analytics Platform**: a multi-platform dashboard for agencies managing dozens of creator accounts. I owned it from the first user interviews through the data pipeline, the billing logic, and the dashboard that shipped. Built on Next.js, Prisma, Zustand, and Trigger.dev for the background sync.
+- **Creator CRM & Automation**: a Chrome extension paired with a CRM dashboard, automating subscriber communication for the same kind of agencies.
+
+Both started with design partners, not a blank Figma file. The data model and the UI followed what those agencies actually did all day, not what looked good in a mockup.
+
+## The parts I don't compromise on
+
+**Ownership over tickets.** I follow a feature from the first conversation to the metric it was supposed to move. A closed ticket isn't the same as a solved problem.
+
+**Users before Figma.** Most bad software isn't badly built, it's built for the wrong problem. A day of user interviews beats a week of rebuilding the wrong feature.
+
+**Clean enough that nobody has to ask me.** Naming and architecture are a courtesy to whoever reads the code next, including me in six months.
+
+## Where this blog is going
+
+Every post here will be a real decision from real work: a tradeoff I made, why the obvious option lost, what it cost. No manufactured incidents, no invented metrics. If a post mentions a number, it's one I could point at in a commit or a dashboard.
