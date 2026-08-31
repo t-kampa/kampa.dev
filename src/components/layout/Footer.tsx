@@ -1,12 +1,12 @@
+import { Github, Linkedin } from "@thesvg/react";
+import { Mail } from "lucide-react";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import FadeContent from "@/components/common/animated/FadeContent";
 import SplitText from "@/components/common/animated/SplitText";
 import { buttonVariants } from "@/components/ui/button";
 import { EASE_POWER2_OUT } from "@/lib/animations";
 import { cn } from "@/lib/utils";
-import { Github, Linkedin } from "@thesvg/react";
-import { Mail } from "lucide-react";
-import Link from "next/link";
-import type { ReactNode } from "react";
 
 const SOCIAL_PLATFORMS: { icon: ReactNode; url: string; label: string }[] = [
   { icon: <Mail />, url: "mailto:me@kampa.dev", label: "Email" },
