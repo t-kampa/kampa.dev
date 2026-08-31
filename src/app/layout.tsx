@@ -1,13 +1,14 @@
-import { MotionConfig } from "motion/react";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import type { PropsWithChildren } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { getAllTags } from "@/lib/blog";
 import { jsonLdText, website } from "@/lib/jsonld";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/provider/ThemeProvider";
+import { Analytics } from "@vercel/analytics/next";
+import { MotionConfig } from "motion/react";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import type { PropsWithChildren } from "react";
 import "./globals.css";
 
 const geist = Geist({
@@ -74,6 +75,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             <PageLayout>{children}</PageLayout>
           </MotionConfig>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
