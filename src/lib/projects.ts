@@ -234,25 +234,29 @@ const PROJECTS: ProjectDetail[] = [
   },
 ];
 
+const SORTED_PROJECTS = [...PROJECTS].sort(
+  (a, b) => Number(b.date) - Number(a.date),
+);
+
 export function getAllProjects(): ProjectDetail[] {
-  return PROJECTS;
+  return SORTED_PROJECTS;
 }
 
 export function getPaginatedProjects(
   page: number,
   perPage: number,
 ): { projects: ProjectDetail[]; totalPages: number } {
-  const totalPages = Math.max(1, Math.ceil(PROJECTS.length / perPage));
+  const totalPages = Math.max(1, Math.ceil(SORTED_PROJECTS.length / perPage));
   const start = (page - 1) * perPage;
 
   return {
-    projects: PROJECTS.slice(start, start + perPage),
+    projects: SORTED_PROJECTS.slice(start, start + perPage),
     totalPages,
   };
 }
 
 export function getAllProjectSlugs(): string[] {
-  return PROJECTS.map((p) => p.slug);
+  return SORTED_PROJECTS.map((p) => p.slug);
 }
 
 export function getProject(slug: string): ProjectDetail | undefined {
