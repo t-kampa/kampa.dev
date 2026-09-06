@@ -1,6 +1,5 @@
 import DecryptedText from "@/components/common/animated/DecryptText";
 import FadeContent from "@/components/common/animated/FadeContent";
-import FadeIn from "@/components/common/animated/FadeIn";
 import LinkCard from "@/components/common/LinkCard";
 import MetaRow from "@/components/common/MetaRow";
 import TextTooltip from "@/components/common/TextTooltip";
@@ -28,7 +27,7 @@ interface Props {
 }
 
 export default function ProjectCard({ project, index }: Props) {
-  const delay = 0.4 + index * 0.2;
+  const delay = 0.4 + Math.min(index, 2) * 0.15;
 
   return (
     <LinkCard href={`/projects/${project.slug}`}>
@@ -53,11 +52,17 @@ export default function ProjectCard({ project, index }: Props) {
               />
             </h2>
           </div>
-          <FadeIn delay={delay + 0.15}>
+          <FadeContent
+            transition={{
+              duration: 0.6,
+              ease: EASE_POWER2_OUT,
+              delay: delay + 0.15,
+            }}
+          >
             <p className="text-sm text-balance text-muted-foreground">
               {project.description}
             </p>
-          </FadeIn>
+          </FadeContent>
           <FadeContent
             transition={{
               duration: 0.6,

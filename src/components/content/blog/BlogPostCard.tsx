@@ -1,5 +1,4 @@
 import FadeContent from "@/components/common/animated/FadeContent";
-import FadeIn from "@/components/common/animated/FadeIn";
 import SplitText from "@/components/common/animated/SplitText";
 import LinkCard from "@/components/common/LinkCard";
 import MetaRow from "@/components/common/MetaRow";
@@ -43,11 +42,17 @@ export default function BlogPostCard({ post }: Props) {
               "transition-all duration-300 group-hover/link-card:translate-x-1",
             )}
           />
-          <FadeIn delay={delay + 0.15}>
+          <FadeContent
+            transition={{
+              duration: 0.6,
+              ease: EASE_POWER2_OUT,
+              delay: delay + 0.15,
+            }}
+          >
             <p className="text-sm text-balance text-muted-foreground">
               {post.excerpt}
             </p>
-          </FadeIn>
+          </FadeContent>
           <FadeContent
             transition={{
               duration: 0.6,

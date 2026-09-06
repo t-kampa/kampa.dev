@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import Link from "next/link";
-import FadeIn from "@/components/common/animated/FadeIn";
 import Section from "@/components/common/Section";
 import { EASE_POWER2_OUT } from "@/lib/animations";
 
@@ -61,23 +60,25 @@ export default function AboutSections({ skills }: AboutSectionsProps) {
         tag="background"
         title={"It started with a soldering iron,\nnot a text editor."}
       >
-        <div className="flex max-w-lg flex-col gap-4">
-          <FadeIn delay={0.15}>
-            <p className="text-muted-foreground">
-              I started out in embedded systems, writing firmware close to the
-              metal, wiring up sensors, and debugging protocols like UART, SPI,
-              and CAN with an oscilloscope instead of a browser console.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <p className="text-muted-foreground">
-              Hardware doesn't forgive sloppy thinking. Limited memory, no
-              garbage collector to bail you out, and bugs that only show up at
-              -10°C in a customer's warehouse. It taught me to understand a
-              system fully before touching it, a habit that never left.
-            </p>
-          </FadeIn>
-        </div>
+        <motion.div
+          className="flex max-w-lg flex-col gap-4"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={container}
+        >
+          <motion.p variants={line} className="text-muted-foreground">
+            I started out in embedded systems, writing firmware close to the
+            metal, wiring up sensors, and debugging protocols like UART, SPI,
+            and CAN with an oscilloscope instead of a browser console.
+          </motion.p>
+          <motion.p variants={line} className="text-muted-foreground">
+            Hardware doesn't forgive sloppy thinking. Limited memory, no garbage
+            collector to bail you out, and bugs that only show up at -10°C in a
+            customer's warehouse. It taught me to understand a system fully
+            before touching it, a habit that never left.
+          </motion.p>
+        </motion.div>
       </Section>
 
       <Section
