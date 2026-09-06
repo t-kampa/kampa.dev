@@ -6,8 +6,8 @@ Personal site and portfolio, built as a working example of the engineering pract
 
 <table>
 <tr>
-<td><img src="docs/screenshots/home-light.png" alt="Home page, light mode" width="420"/></td>
-<td><img src="docs/screenshots/home-dark.png" alt="Home page, dark mode" width="420"/></td>
+<td><img src="assets/home-light.png" alt="Home page, light mode" width="420"/></td>
+<td><img src="assets/home-dark.png" alt="Home page, dark mode" width="420"/></td>
 </tr>
 </table>
 
