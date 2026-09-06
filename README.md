@@ -23,12 +23,13 @@ Rationale for the less obvious choices (Bun as the whole toolchain, Biome over E
 
 ## Structure
 
-- `src/app` — routes (`/`, `/about`, `/projects`, `/projects/[slug]`, `/blog`, `/blog/[slug]`, `/imprint`, `/privacy`)
+- `src/app` — routes (`/`, `/about`, `/projects`, `/projects/[slug]`, `/blog`, `/blog/[slug]`, `/imprint`, `/privacy`, `/llms.txt`, `/llms-full.txt`)
 - `src/components` — `content/*` (page-specific sections), `layout/*` (header/footer/page shell), `ui/*` (shadcn/ui), `common/*` (shared + animated primitives)
 - `src/content/*.mdx` — blog posts, read via `src/lib/blog.ts`
 - `src/lib/projects.ts` — project case-study data
+- `src/lib/jsonld.ts` — schema.org structured data helpers, used in layout and project/blog pages
 - `e2e/` — Playwright end-to-end tests
-- `docs/ARCHITECTURE.md` — rendering strategy, content pipeline, stack rationale
+- `docs/ARCHITECTURE.md` — rendering strategy, content pipeline, SEO/AI discoverability, stack rationale
 
 ## Getting started
 
