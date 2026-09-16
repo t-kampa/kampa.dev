@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { PropsWithChildren } from "react";
 import Article from "@/components/common/Article";
-import ContactCTA from "@/components/common/ContactCTA";
 import MetaRow from "@/components/common/MetaRow";
 import Section from "@/components/common/Section";
 import PageHeader from "@/components/layout/PageHeader";
@@ -111,7 +110,6 @@ export default async function MdxLayout({
       <Section grow>
         <Article>{children}</Article>
       </Section>
-      <ContactCTA />
     </>
   );
 }

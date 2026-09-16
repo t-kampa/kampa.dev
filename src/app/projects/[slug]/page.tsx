@@ -2,7 +2,6 @@ import { Github } from "@thesvg/react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ContactCTA from "@/components/common/ContactCTA";
 import MetaRow from "@/components/common/MetaRow";
 import ProjectContent from "@/components/content/projects/ProjectContent";
 import PageHeader from "@/components/layout/PageHeader";
@@ -120,7 +119,6 @@ export default async function Page({ params }: Props) {
         }
       />
       <ProjectContent project={project} relatedPosts={relatedPosts} />
-      <ContactCTA />
     </>
   );
 }
